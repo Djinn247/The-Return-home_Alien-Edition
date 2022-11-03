@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class VisionDetection : MonoBehaviour
+public class VisionDetection_OLD : MonoBehaviour
 {
     public bool playerInRange = false;
     [SerializeField] private GameObject eyes;
