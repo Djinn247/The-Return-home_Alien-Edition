@@ -61,7 +61,6 @@ public class PlayerMovement : MonoBehaviour
           //  anim.SetBool("canrun", true);
 
         }
-    
         // Rotates our player to face in the direction it is moving towards
         rb.rotation = Quaternion.Euler(0, facing, 0);
 
