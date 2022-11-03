@@ -6,7 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     #region Variables
     // How fast the Player will move
-    [SerializeField] private float WALKSpeed;
+    public float WALKSpeed;
   //  [SerializeField] private float RUNSpeed;
     // This should be an empty child of the camera, and is the Transform we will be using to update our Player's directional movement
     [SerializeField] private Transform cameraReference;

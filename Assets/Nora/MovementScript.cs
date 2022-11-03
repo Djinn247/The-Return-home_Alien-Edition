@@ -65,7 +65,7 @@ public class AlienMovementScript : MonoBehaviour
 
     public void switchtoHumanState()
     {
-        movementScript.playerSpeed = 2;
+        movementScript.WALKSpeed = 2;
 
     }
 
