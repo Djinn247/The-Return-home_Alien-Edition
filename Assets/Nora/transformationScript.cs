@@ -6,40 +6,55 @@ using UnityEngine.UI;
 public class transformationScript : MonoBehaviour
 {
     [SerializeField] private Image TransformBar;
-    //[SerializeField] Morph MorphingScript;
+    //[SerializeField] private GameObject modelA;
+    //[SerializeField] private GameObject modelB;
+    [SerializeField] AlienState humanORAlienScript;
+    [SerializeField] Morph MorphingScript;
     public float timeLeft;
 
 
     private void Start()
     {
-        InvokeRepeating("Countdown", 1, 1);
+
     }
 
     private void Update()
     {
-        //meterBar.fillAmount = timeLeft;
+        //  TransformBar.fillAmount = timeLeft *0.01f;
 
-        //if (timeLeft < 0)
-        //{
-        //MorphingScript.modelA.SetActive(true);
-        //}
+       
 
-
-        //}
         Debug.Log(timeLeft);
-    }
-        private void Countdown()
-        {
-            timeLeft -= 0.016f;
-        }
-
-        public void CountUp()
-        {
-            timeLeft += 0.5f;
-
-        }
 
     }
+    private void Countdown()
+    {
+        timeLeft -= 0.1f;
+        TransformBar.fillAmount = timeLeft;
+
+        if (timeLeft <= 0f)
+        {
+            MorphingScript.modelA.SetActive(true);
+            MorphingScript.modelB.SetActive(false);
+            humanORAlienScript.SetToHumanState();
+            CancelInvoke("Countdown");
+        }
+    }
+
+    public void CountUp()
+    {
+
+        if (timeLeft <= 1)
+        {
+            timeLeft += 1;
+            TransformBar.fillAmount = timeLeft;
+            humanORAlienScript.SetToAlienState();
+        }
+
+        InvokeRepeating("Countdown", 1, 1);
+
+    }
+
+}
 
 
-      

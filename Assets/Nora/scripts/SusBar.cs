@@ -12,7 +12,7 @@ public class SusBar : MonoBehaviour
 
     private void Start()
     {
-        InvokeRepeating("CountDown",1,1);
+      //  InvokeRepeating("CountDownn",1,1);
     }
 
     private void Update()
