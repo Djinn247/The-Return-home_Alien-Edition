@@ -13,7 +13,7 @@ public class VisionDetection : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("HumanAlien"))
+        if (other.gameObject.CompareTag("Player"))
         {
             playerInRange = true;
             player = other.gameObject;
@@ -22,7 +22,7 @@ public class VisionDetection : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.CompareTag("HumanAlien"))
+        if (other.gameObject.CompareTag("Player"))
         {
             playerInRange = false;
             print("player left");
@@ -39,28 +39,24 @@ public class VisionDetection : MonoBehaviour
             int groundMask = 1 << 3;
             if(Physics.Raycast(eyes.transform.position, player.transform.position-eyes.transform.position, out hit, 100f, defaultMask | groundMask))
             {
-                print(hit.collider);
-                if (hit.collider.gameObject.CompareTag("HumanAlien"))
+                print(hit.collider +"    " +hit.collider.gameObject.name);
+                if (hit.collider.gameObject.CompareTag("Player"))
                 {
                     print("player seen");
                     if (player.GetComponent<AlienState>().currentState == AlienState.PlayerState.HumanState)
                     {
                         //TODO Sus meter
                         print("player seen as human");
-                       
-                        
+                        if(sus<100)
+                            sus += 1 / Vector3.Distance(transform.position, player.transform.position);
+                        susbarscript.suspercentage = (sus * 0.01f);
                     }
                 }
             }
         }
+        if (sus > 100)
+            sus = 100;
     }
 
-    private void Update()
-    {
-        if (playerInRange)
-        {
-            sus += 1 / Vector3.Distance(transform.position, player.transform.position);
-            susbarscript.suspercentage = (sus * 0.01f);
-        }
-    }
+   
 }

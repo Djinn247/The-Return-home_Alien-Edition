@@ -6,10 +6,10 @@ public class PlayerMovement : MonoBehaviour
 {
     #region Variables
     // How fast the Player will move
-    public float WALKSpeed;
-  //  [SerializeField] private float RUNSpeed;
+    public float playerSpeed = 2;
+
     // This should be an empty child of the camera, and is the Transform we will be using to update our Player's directional movement
-    [SerializeField] private Transform cameraReference;
+    [SerializeField] public Transform cameraReference;
 
     // The Player's Rigidbody Component
     private Rigidbody rb;
@@ -35,14 +35,14 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         // Creates float values out of our inputs multiplied by the amount of speed we set
-        float xMovement = Input.GetAxis("Horizontal") * WALKSpeed;
-        float zMovement = Input.GetAxis("Vertical") * WALKSpeed;
-
+        float xMovement = Input.GetAxis("Horizontal") * playerSpeed;
+        float zMovement = Input.GetAxis("Vertical") * playerSpeed;
+    
 
         // Vector3 values made up of our input values
         Vector3 movement = new Vector3(xMovement, 0, zMovement);
-        //Vector3 movement1 = new Vector3(xXMovement, 0, zZMovement);
 
+        
         movement = cameraReference.TransformDirection(movement);
 
         // Generates movement in the Player's Rigidbody using the Vector3 values from above
