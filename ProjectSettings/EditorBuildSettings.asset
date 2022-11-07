@@ -8,4 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Maha/scc/testAnimation.unity
     guid: 1600663a6f9d07c44ac6c974caac3b68
+  - enabled: 1
+    path: Assets/SlimUI/Tech Menu/Scenes/Tech Demo Scene.unity
+    guid: bebc050756972234eb97d414dab7df66
   m_configObjects: {}
