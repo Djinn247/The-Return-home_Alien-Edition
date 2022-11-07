@@ -57,7 +57,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else if (movement.x == 0 || movement.z == 0)
         {
-            anim.SetBool("canwalk", false);
+          //  anim.SetBool("canwalk", false);
           //  anim.SetBool("canrun", true);
 
         }
