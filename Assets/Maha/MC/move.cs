@@ -63,9 +63,6 @@ public class move : MonoBehaviour
     #endregion
 }
 
-void moving(){
 
-
-}
 
 }
