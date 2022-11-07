@@ -38,7 +38,7 @@ public class move : MonoBehaviour
     
 
         movement = cameraReference.TransformDirection(movement);
-        anim.SetFloat("input_mag", Mathf.Clamp01(movement.magnitude));
+        anim.SetFloat("vz", Mathf.Clamp01(movement.magnitude));
         rb.velocity = new Vector3(movement.x, rb.velocity.y, movement.z);
 
         // Takes our player's movement to calculate which angle our player should be rotating towards
