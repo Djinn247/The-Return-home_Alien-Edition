@@ -29,8 +29,8 @@ public class move : MonoBehaviour
     private void Update()
     {
         
-        float xMovement = Input.GetAxis("Horizontal") ;
-        float zMovement = Input.GetAxis("Vertical") ;
+        float xMovement = Input.GetAxis("Horizontal") * WALKSpeed;
+        float zMovement = Input.GetAxis("Vertical") * WALKSpeed;
 
 
  
@@ -39,7 +39,7 @@ public class move : MonoBehaviour
 
         movement = cameraReference.TransformDirection(movement);
         anim.SetFloat("input_mag", Mathf.Clamp01(movement.magnitude));
-        rb.velocity = new Vector3(movement.x* WALKSpeed, rb.velocity.y, movement.z* WALKSpeed);
+        rb.velocity = new Vector3(movement.x, rb.velocity.y, movement.z);
 
         // Takes our player's movement to calculate which angle our player should be rotating towards
         if (movement.x != 0 || movement.z != 0)
