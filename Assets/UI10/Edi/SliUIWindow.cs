@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEditor;
 
-public class SlimUIWindow : EditorWindow {
+public class SliUIWindow : EditorWindow {
 
 	//string myString = "Hello";
 

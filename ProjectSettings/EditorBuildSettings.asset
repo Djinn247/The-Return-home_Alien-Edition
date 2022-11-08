@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/SlimUI/Modern Menu 1/Scenes/Second_Scene.unity
+    path: Assets/SlimUI/Modern Menu 1/Sceness/Second_Scene.unity
     guid: 4c89c579092f70744885e7d9f6baba7f
   - enabled: 1
     path: Assets/UI10/Tech Demo Scene.unity
@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Nora/Scenes/Teehe.unity
     guid: b9e19138195faa040a3e87148586a701
+  - enabled: 1
+    path: Assets/SlimUI/Modern Menu 1/Sceness/Menu_Scene.unity
+    guid: 829a86ba161cdd840842063447f41aab
   m_configObjects: {}
