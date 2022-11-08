@@ -8,4 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Maha/scc/testAnimation.unity
     guid: 1600663a6f9d07c44ac6c974caac3b68
+  - enabled: 1
+    path: Assets/Nora/Scenes/Teehe.unity
+    guid: 75788191e3ad7d4408384afa91cc40db
   m_configObjects: {}

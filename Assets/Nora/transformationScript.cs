@@ -9,22 +9,18 @@ public class transformationScript : MonoBehaviour
     //[SerializeField] private GameObject modelA;
     //[SerializeField] private GameObject modelB;
     [SerializeField] AlienState humanORAlienScript;
+    [SerializeField] Move moveScript;
     [SerializeField] Morph MorphingScript;
+    private bool meterIsDone = false;
     public float timeLeft;
 
 
-    private void Start()
-    {
-
-    }
 
     private void Update()
     {
-        //  TransformBar.fillAmount = timeLeft *0.01f;
 
-       
 
-        Debug.Log(timeLeft);
+     Debug.Log(timeLeft);
 
     }
     private void Countdown()
@@ -37,6 +33,7 @@ public class transformationScript : MonoBehaviour
             MorphingScript.modelA.SetActive(true);
             MorphingScript.modelB.SetActive(false);
             humanORAlienScript.SetToHumanState();
+            //moveScript.WALKSpeed = 4;
             CancelInvoke("Countdown");
         }
     }
@@ -44,14 +41,17 @@ public class transformationScript : MonoBehaviour
     public void CountUp()
     {
 
-        if (timeLeft <= 1)
+        if (timeLeft < 1)
         {
             timeLeft += 1;
             TransformBar.fillAmount = timeLeft;
             humanORAlienScript.SetToAlienState();
+            meterIsDone = false;
+            InvokeRepeating("Countdown", 1, 1);
         }
+        
 
-        InvokeRepeating("Countdown", 1, 1);
+        
 
     }
 

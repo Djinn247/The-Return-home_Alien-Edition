@@ -52,13 +52,13 @@ public class PlayerMovement : MonoBehaviour
         if (movement.x != 0 || movement.z != 0)
         {
             anim.SetBool("canwalk", true);
-           // anim.SetBool("canrun", false);
+           // animHUMAN.SetBool("canrun", false);
             facing = Mathf.Atan2(movement.x, movement.z) * Mathf.Rad2Deg;
         }
         else if (movement.x == 0 || movement.z == 0)
         {
-          //  anim.SetBool("canwalk", false);
-          //  anim.SetBool("canrun", true);
+            anim.SetBool("canwalk", false);
+          //  animHUMAN.SetBool("canrun", true);
 
         }
         // Rotates our player to face in the direction it is moving towards
