@@ -6,9 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/UI1/Tech Demo Scene.unity
+    guid: bebc050756972234eb97d414dab7df66
+  - enabled: 1
     path: Assets/Maha/scc/testAnimation.unity
     guid: 1600663a6f9d07c44ac6c974caac3b68
   - enabled: 1
-    path: Assets/SlimUI/Tech Menu/Scenes/Tech Demo Scene.unity
-    guid: bebc050756972234eb97d414dab7df66
+    path: Assets/Nora/Scenes/Teehe.unity
+    guid: b9e19138195faa040a3e87148586a701
   m_configObjects: {}
