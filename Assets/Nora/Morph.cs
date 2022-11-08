@@ -8,7 +8,8 @@ public class Morph : MonoBehaviour
 {
     public GameObject modelA;
     public GameObject modelB;
-    private int modelNumber;
+    [SerializeField] private AlienState AlienScript;
+    public int modelNumber;
 
 
 
@@ -17,17 +18,18 @@ public class Morph : MonoBehaviour
     [SerializeField] private TMP_Text potionCounter;
     [SerializeField] private int amountOfPotions = 0;
 
-    [SerializeField] Move moveScript;
+    
 
-    private bool isModelA = true;
+    public bool isModelA = true;
 
     //first drink player takes.
     void Start()
     {
+        /*
         modelNumber = 1;
         modelA.SetActive(true);
         morphingdust = GetComponent<ParticleSystem>();
-        potionCounter.text = "x" + amountOfPotions;
+        potionCounter.text = "x" + amountOfPotions; */
     }
 
     private void Update()
@@ -36,7 +38,9 @@ public class Morph : MonoBehaviour
         {
             if (isModelA)
             {
+
                 StartCoroutine("Transformation");
+
             }else
             {
                 amountOfPotions--;
@@ -52,8 +56,6 @@ public class Morph : MonoBehaviour
         {
             CollectDrink();
             //StartCoroutine("Transformation");
-
-
         }
 
     }
@@ -75,11 +77,8 @@ public class Morph : MonoBehaviour
         morphingdust.Play();
         yield return new WaitForSeconds(2);
         TransMeterScript.CountUp();
-        modelA.SetActive(false);
-        modelB.SetActive(true);
-        //moveScript.WALKSpeed = 1;
-        modelNumber = 2;
-        isModelA = false;
+        AlienScript.SetToAlienState();
+        
     }
 
 }

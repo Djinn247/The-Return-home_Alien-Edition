@@ -13,9 +13,6 @@ public class Move : MonoBehaviour
     private float facing;
     [SerializeField] private Animator animHUMAN;
     [SerializeField] private Animator animALIEN;
-
-    private AlienState currentalienState;
-
     #endregion
 
     #region Methods
@@ -74,13 +71,15 @@ public class Move : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftShift) && (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow)))
         {
             WALKSpeed = 8;
+
             animALIEN.SetBool("Run", true);
             animALIEN.SetBool("walk", false);
+
             alienStateScript.susORnot = 2;
             Debug.Log("im runninggg");
         }
-        else
-        {
+        else if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow))
+{
              WALKSpeed = 1;
             animALIEN.SetBool("walk", true);
             animALIEN.SetBool("Run", false);

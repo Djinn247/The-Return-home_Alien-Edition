@@ -8,6 +8,7 @@ public class AlienState : MonoBehaviour
     //private PlayerMovement movementScript;
     public PlayerState currentState;
     public float susORnot = 1;
+    [SerializeField] Morph MorphingScript;
 
     //define player states 
     public enum PlayerState
@@ -53,15 +54,31 @@ public class AlienState : MonoBehaviour
     {
         setCurrentState(PlayerState.HumanState);
         susORnot = 2;
+
+        MorphingScript.modelA.SetActive(true);
+        MorphingScript.isModelA = true;
+        MorphingScript.modelB.SetActive(false);
+
+        //modelA setactive = true
+        //modelB setactive = false
     }
 
     public void SetToAlienState()
     {
         setCurrentState(PlayerState.AlienState);
         susORnot = 1;
+
+        MorphingScript.modelA.SetActive(false);
+        MorphingScript.modelB.SetActive(true);
+        MorphingScript.modelNumber = 2;
+        MorphingScript.isModelA = false;
+
+        //modelA setactive = false
+        //modelB setactive = true
+
     }
 
-   
+
 
 
 }
