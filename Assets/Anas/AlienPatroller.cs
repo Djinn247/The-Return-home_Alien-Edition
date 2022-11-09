@@ -27,13 +27,13 @@ public class AlienPatroller : MonoBehaviour
         //if nav has no path calculating
         if (!mNavMeshAgent.pathPending)
         {
-            //if nav reached the stopping distance
+            //if nav reached the stopping distance means probably stopped
             if (mNavMeshAgent.remainingDistance <= mNavMeshAgent.stoppingDistance)
             {
                 //if stopped moving or has no path
                 if (!mNavMeshAgent.hasPath || mNavMeshAgent.velocity.sqrMagnitude == 0f)
                 {
-                    //only invoke once
+                    //only invoke once per waypoint
                     if (!invoked)
                     {
                         invoked = true;
