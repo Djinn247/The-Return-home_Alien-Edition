@@ -18,9 +18,6 @@ public class AlienState : MonoBehaviour
         //HidingState
     }
 
-    // Start is called before the first frame update
- 
-
     // Update is called once per frame
     void Update()
     {
@@ -42,7 +39,6 @@ public class AlienState : MonoBehaviour
         }*/
 
     }
-
 
     void setCurrentState(PlayerState state)
     {
@@ -77,8 +73,5 @@ public class AlienState : MonoBehaviour
         //modelB setactive = true
 
     }
-
-
-
 
 }

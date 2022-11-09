@@ -18,11 +18,6 @@ public class AlenMovementScript : MonoBehaviour
 
 
     //if currentstate == playerstate.AlienState or something
-
-
-    // Update is called once per frame
-
-
     private void Update()
     {
 
@@ -47,17 +42,11 @@ public class AlenMovementScript : MonoBehaviour
         */
     }
 
-
-
-
     //define method for setting the state of playerState
     void setCurrentState(playerState state)
     {
         currentState = state;
 
     }
-
-
-
 
 }

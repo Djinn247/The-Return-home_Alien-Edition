@@ -18,11 +18,11 @@ using Rewired;
 public class FirstPersonController : MonoBehaviour
 {
     private Rigidbody rb;
+
+    #region Rewired Variables
     private Player player;
     private int playerId = 0;
-
-    #region Rewired Action Names
-    private string cameraXButton = "CameraHorizontal", cameraYButton = "CameraVertical", jumpButton = "Jump", sneakButton = "Sneak", moveHorizontalAxis = "MoveR", moveVerticalAxis = "MoveF", runButton = "Run";
+    private string cameraXAxis = "CameraHorizontal", cameraYAxis = "CameraVertical", jumpButton = "Jump", sneakButton = "Sneak", moveHorizontalAxis = "MoveR", moveVerticalAxis = "MoveF", runButton = "Run";
     #endregion
 
     #region Camera Movement Variables
@@ -216,18 +216,18 @@ public class FirstPersonController : MonoBehaviour
         if(cameraCanMove)
         {
             //yaw = transform.localEulerAngles.y + Input.GetAxis("Mouse X") * mouseSensitivity;
-            yaw = transform.localEulerAngles.y + player.GetAxis(cameraXButton) * mouseSensitivity;
+            yaw = transform.localEulerAngles.y + player.GetAxis(cameraXAxis) * mouseSensitivity;
 
             if (!invertCamera)
             {
                 //pitch -= mouseSensitivity * Input.GetAxis("Mouse Y");
-                pitch -= mouseSensitivity * player.GetAxis(cameraYButton);
+                pitch -= mouseSensitivity * player.GetAxis(cameraYAxis);
             }
             else
             {
                 // Inverted Y
                 //pitch += mouseSensitivity * Input.GetAxis("Mouse Y");
-                pitch += mouseSensitivity * player.GetAxis(cameraYButton);
+                pitch += mouseSensitivity * player.GetAxis(cameraYAxis);
             }
 
             // Clamp pitch between lookAngle
