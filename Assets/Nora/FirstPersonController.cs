@@ -8,6 +8,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Rewired;
 
 #if UNITY_EDITOR
     using UnityEditor;
@@ -17,6 +18,12 @@ using UnityEngine.UI;
 public class FirstPersonController : MonoBehaviour
 {
     private Rigidbody rb;
+    private Player player;
+    private int playerId = 0;
+
+    #region Rewired Action Names
+    private string cameraXButton = "CameraHorizontal", cameraYButton = "CameraVertical", jumpButton = "Jump", sneakButton = "Sneak", moveHorizontalAxis = "MoveR", moveVerticalAxis = "MoveF", runButton = "Run";
+    #endregion
 
     #region Camera Movement Variables
 
@@ -134,6 +141,7 @@ public class FirstPersonController : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        player = ReInput.players.GetPlayer(playerId);
 
         crosshairObject = GetComponentInChildren<Image>();
 
@@ -207,16 +215,19 @@ public class FirstPersonController : MonoBehaviour
         // Control camera movement
         if(cameraCanMove)
         {
-            yaw = transform.localEulerAngles.y + Input.GetAxis("Mouse X") * mouseSensitivity;
+            //yaw = transform.localEulerAngles.y + Input.GetAxis("Mouse X") * mouseSensitivity;
+            yaw = transform.localEulerAngles.y + player.GetAxis(cameraXButton) * mouseSensitivity;
 
             if (!invertCamera)
             {
-                pitch -= mouseSensitivity * Input.GetAxis("Mouse Y");
+                //pitch -= mouseSensitivity * Input.GetAxis("Mouse Y");
+                pitch -= mouseSensitivity * player.GetAxis(cameraYButton);
             }
             else
             {
                 // Inverted Y
-                pitch += mouseSensitivity * Input.GetAxis("Mouse Y");
+                //pitch += mouseSensitivity * Input.GetAxis("Mouse Y");
+                pitch += mouseSensitivity * player.GetAxis(cameraYButton);
             }
 
             // Clamp pitch between lookAngle
@@ -326,7 +337,8 @@ public class FirstPersonController : MonoBehaviour
         #region Jump
 
         // Gets input and calls jump method
-        if(enableJump && Input.GetKeyDown(jumpKey) && isGrounded)
+        //if (enableJump && Input.GetKeyDown(jumpKey) && isGrounded)
+        if (enableJump && player.GetButtonDown(jumpButton) && isGrounded)
         {
             Jump();
         }
@@ -337,17 +349,20 @@ public class FirstPersonController : MonoBehaviour
 
         if (enableCrouch)
         {
-            if(Input.GetKeyDown(crouchKey) && !holdToCrouch)
+            //if (Input.GetKeyDown(crouchKey) && !holdToCrouch)
+            if (player.GetButtonDown(sneakButton) && !holdToCrouch)
             {
                 Crouch();
             }
-            
-            if(Input.GetKeyDown(crouchKey) && holdToCrouch)
+
+            //if(Input.GetKeyDown(crouchKey) && holdToCrouch)
+            if (player.GetButtonDown(sneakButton) && holdToCrouch)
             {
                 isCrouched = false;
                 Crouch();
             }
-            else if(Input.GetKeyUp(crouchKey) && holdToCrouch)
+            //else if(Input.GetKeyUp(crouchKey) && holdToCrouch)
+            else if (player.GetButtonDown(sneakButton) && holdToCrouch)
             {
                 isCrouched = true;
                 Crouch();
@@ -371,7 +386,8 @@ public class FirstPersonController : MonoBehaviour
         if (playerCanMove)
         {
             // Calculate how fast we should be moving
-            Vector3 targetVelocity = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+            //Vector3 targetVelocity = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+            Vector3 targetVelocity = new Vector3(player.GetAxis(moveHorizontalAxis), 0, player.GetAxis(moveVerticalAxis));
 
             // Checks if player is walking and isGrounded
             // Will allow head bob
@@ -385,7 +401,8 @@ public class FirstPersonController : MonoBehaviour
             }
 
             // All movement calculations shile sprint is active
-            if (enableSprint && Input.GetKey(sprintKey) && sprintRemaining > 0f && !isSprintCooldown)
+            //if (enableSprint && Input.GetKey(sprintKey) && sprintRemaining > 0f && !isSprintCooldown)
+            if (enableSprint && player.GetButton(runButton) && sprintRemaining > 0f && !isSprintCooldown)
             {
                 targetVelocity = transform.TransformDirection(targetVelocity) * sprintSpeed;
 
