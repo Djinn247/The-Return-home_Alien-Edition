@@ -8,34 +8,40 @@ public class Morph : MonoBehaviour
 {
     public GameObject modelA;
     public GameObject modelB;
-    private int modelNumber;
+    [SerializeField] private AlienState AlienScript;
+    public int modelNumber;
 
-    
+
 
     [SerializeField] transformationScript TransMeterScript;
     [SerializeField] private ParticleSystem morphingdust;
     [SerializeField] private TMP_Text potionCounter;
     [SerializeField] private int amountOfPotions = 0;
 
-    private bool isModelA = true;
+    
+
+    public bool isModelA = true;
 
     //first drink player takes.
     void Start()
     {
+        /*
         modelNumber = 1;
         modelA.SetActive(true);
         morphingdust = GetComponent<ParticleSystem>();
-        potionCounter.text = "x" + amountOfPotions;
+        potionCounter.text = "x" + amountOfPotions; */
     }
 
     private void Update()
     {
-        if (Input.anyKeyDown && amountOfPotions > 0)
+        if (Input.GetButtonDown("Fire1") && amountOfPotions > 0)
         {
             if (isModelA)
+            {
+
                 StartCoroutine("Transformation");
 
-            else
+            }else
             {
                 amountOfPotions--;
                 TransMeterScript.CountUp();
@@ -50,8 +56,6 @@ public class Morph : MonoBehaviour
         {
             CollectDrink();
             //StartCoroutine("Transformation");
-
-
         }
 
     }
@@ -59,6 +63,7 @@ public class Morph : MonoBehaviour
     private void CollectDrink()
     {
         amountOfPotions++;
+
         potionCounter.text = "x" + amountOfPotions;
     }
 
@@ -66,16 +71,14 @@ public class Morph : MonoBehaviour
     {
         modelA.GetComponent<Animator>().SetTrigger("Drank");
         amountOfPotions--;
-        TransMeterScript.CountUp();
+
         potionCounter.text = "x" + amountOfPotions;
         yield return new WaitForSeconds(1);
         morphingdust.Play();
         yield return new WaitForSeconds(2);
-        modelA.SetActive(false);
-        modelB.SetActive(true);
-        modelNumber = 2;
-        isModelA = false;
+        TransMeterScript.CountUp();
+        AlienScript.SetToAlienState();
+        
     }
 
 }
-      

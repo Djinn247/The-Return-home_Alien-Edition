@@ -43,12 +43,16 @@ public class VisionDetection : MonoBehaviour
                 if (hit.collider.gameObject.CompareTag("Player"))
                 {
                     print("player seen");
-                    if (player.GetComponent<AlienState>().currentState == AlienState.PlayerState.HumanState)
+                    if (player.GetComponent<AlienState>().susORnot == 2)
                     {
                         //TODO Sus meter
-                        print("player seen as human");
-                        if(sus<100)
+                       
+                        if (sus < 100)
+                        {
                             sus += 1 / Vector3.Distance(transform.position, player.transform.position);
+                            print("player seen as human");
+                        }
+                            
                         susbarscript.suspercentage = (sus * 0.01f);
                     }
                 }

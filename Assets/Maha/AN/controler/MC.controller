@@ -101,7 +101,7 @@ BlendTree:
   - serializedVersion: 2
     m_Motion: {fileID: 7400000, guid: 432bacdf13623184e968db66bc9cf7fc, type: 2}
     m_Threshold: 0
-    m_Position: {x: 0, y: 0.5}
+    m_Position: {x: 0, y: 0}
     m_TimeScale: 1
     m_CycleOffset: 0
     m_DirectBlendParameter: input_mag
@@ -115,7 +115,7 @@ BlendTree:
     m_DirectBlendParameter: input_mag
     m_Mirror: 0
   m_BlendParameter: vz
-  m_BlendParameterY: vz
+  m_BlendParameterY: input_mag
   m_MinThreshold: 0
   m_MaxThreshold: 1
   m_UseAutomaticThresholds: 1
@@ -160,7 +160,7 @@ AnimatorStateMachine:
     m_Position: {x: 390, y: 270, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -357286924256319442}
-    m_Position: {x: 300, y: 40, z: 0}
+    m_Position: {x: 300, y: 110, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1553617847137822885}
     m_Position: {x: 700, y: 150, z: 0}
@@ -245,8 +245,8 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
-  - m_Name: canwalk
-    m_Type: 4
+  - m_Name: vz
+    m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
@@ -403,6 +403,9 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 1
     m_ConditionEvent: canwalk
+    m_EventTreshold: 0.05
+  - m_ConditionMode: 3
+    m_ConditionEvent: vz
     m_EventTreshold: 0.05
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 8671825590217492820}
