@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Rewired;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -17,6 +18,13 @@ public class PlayerMovement : MonoBehaviour
     // The value we will be using to determine which direction the player faces while moving
     private float facing;
     private Animator anim;
+
+    #region Rewired Variables
+    private Player player;
+    private int playerId = 0;
+    private string cameraXAxis = "CameraHorizontal", cameraYAxis = "CameraVertical", jumpButton = "Jump", sneakButton = "Sneak", moveHorizontalAxis = "MoveR", moveVerticalAxis = "MoveF", runButton = "Run";
+    #endregion
+
     #endregion
 
     #region Methods
@@ -26,7 +34,7 @@ public class PlayerMovement : MonoBehaviour
         // Directly grabs the Player's Rigidbody Component
         rb = GetComponent<Rigidbody>();
         anim= GetComponent<Animator>();
-
+        player = ReInput.players.GetPlayer(playerId);
 
 
     }
@@ -35,8 +43,10 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         // Creates float values out of our inputs multiplied by the amount of speed we set
-        float xMovement = Input.GetAxis("Horizontal") * playerSpeed;
-        float zMovement = Input.GetAxis("Vertical") * playerSpeed;
+        //float xMovement = Input.GetAxis("Horizontal") * playerSpeed;
+        //float zMovement = Input.GetAxis("Vertical") * playerSpeed;
+        float xMovement = player.GetAxis(cameraXAxis) * playerSpeed;
+        float zMovement = player.GetAxis(cameraYAxis) * playerSpeed;
     
 
         // Vector3 values made up of our input values
