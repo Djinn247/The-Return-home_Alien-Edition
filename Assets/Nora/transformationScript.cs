@@ -21,7 +21,7 @@ public class transformationScript : MonoBehaviour
     private void Countdown()
     {
 
-        timeLeft -= 0.1f;
+        timeLeft -= 0.01f;
         TransformBar.fillAmount = timeLeft;
         countISRunning = true;
 
