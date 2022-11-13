@@ -34,6 +34,8 @@ public class Move : MonoBehaviour
 
         movement = cameraReference.TransformDirection(movement);
         animHUMAN.SetFloat("vz", Mathf.Clamp01(movement.magnitude));
+        
+
         rb.velocity = new Vector3(movement.x, rb.velocity.y, movement.z);
 
         // Takes our player's movement to calculate which angle our player should be rotating towards
@@ -72,8 +74,7 @@ public class Move : MonoBehaviour
         {
             WALKSpeed = 8;
 
-            animALIEN.SetBool("Run", true);
-            animALIEN.SetBool("walk", false);
+            animALIEN.SetFloat("vzAlien", 0.9f);
 
             alienStateScript.susORnot = 2;
             Debug.Log("im runninggg");
@@ -81,9 +82,11 @@ public class Move : MonoBehaviour
         else if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow))
 {
              WALKSpeed = 1;
-            animALIEN.SetBool("walk", true);
-            animALIEN.SetBool("Run", false);
+            animALIEN.SetFloat("vzAlien", 0.4f);
             alienStateScript.susORnot = 1;
+        }else if (!(Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow)))
+        {
+            animALIEN.SetFloat("vzAlien", 0f);
         }
 
     }
@@ -93,11 +96,11 @@ public class Move : MonoBehaviour
 
         if (Input.GetKey(KeyCode.UpArrow)|| Input.GetKey(KeyCode.DownArrow)|| Input.GetKey(KeyCode.LeftArrow)|| Input.GetKey(KeyCode.RightArrow))
         {
-            animHUMAN.SetBool("canwalk", true);
+            //animHUMAN.SetBool("canwalk", true);
             WALKSpeed = 8;
         }
         else{
-            animHUMAN.SetBool("canwalk", false);
+            //animHUMAN.SetBool("canwalk", false);
         }
 
         //animation for hiding

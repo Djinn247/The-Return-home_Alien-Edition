@@ -8,9 +8,9 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 2
-    m_ConditionEvent: canwalk
-    m_EventTreshold: 0
+  - m_ConditionMode: 4
+    m_ConditionEvent: vz
+    m_EventTreshold: 0.05
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -357286924256319442}
   m_Solo: 0
@@ -210,9 +210,6 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 2
-    m_ConditionEvent: canwalk
-    m_EventTreshold: 0
   - m_ConditionMode: 1
     m_ConditionEvent: drink
     m_EventTreshold: 0
@@ -251,8 +248,8 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
-  - m_Name: vz
-    m_Type: 1
+  - m_Name: canwalk
+    m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
@@ -346,9 +343,6 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: canwalk
-    m_EventTreshold: 0
-  - m_ConditionMode: 2
     m_ConditionEvent: drink
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
@@ -376,9 +370,6 @@ AnimatorStateTransition:
   - m_ConditionMode: 2
     m_ConditionEvent: drink
     m_EventTreshold: 0
-  - m_ConditionMode: 1
-    m_ConditionEvent: canwalk
-    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 8671825590217492820}
   m_Solo: 0
@@ -399,11 +390,8 @@ AnimatorStateTransition:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: 
+  m_Name: canwalk
   m_Conditions:
-  - m_ConditionMode: 1
-    m_ConditionEvent: canwalk
-    m_EventTreshold: 0.05
   - m_ConditionMode: 3
     m_ConditionEvent: vz
     m_EventTreshold: 0.05

@@ -75,6 +75,7 @@ public class Morph : MonoBehaviour
         potionCounter.text = "x" + amountOfPotions;
         yield return new WaitForSeconds(1);
         morphingdust.Play();
+        //Instantiate(morphingdust, modelA.transform.position, Quaternion.identity);
         yield return new WaitForSeconds(2);
         TransMeterScript.CountUp();
         AlienScript.SetToAlienState();
