@@ -34,10 +34,10 @@ namespace SlimUI.ModernMenu{
 	//	[Tooltip("The UI Sub-Panel under KEY BINDINGS for COMBAT")]
 	//	public GameObject PanelCombat;
 	//	[Tooltip("The UI Sub-Panel under KEY BINDINGS for GENERAL")]
-	public GameObject PanelGeneral;
+	//public GameObject PanelGeneral;
 
 		[Header("SFX")]
-		[Tooltip("The GameObject holding the Audio Source component for the HOVER SOUND")]
+		//[Tooltip("The GameObject holding the Audio Source component for the HOVER SOUND")]
 		public AudioSource hoverSound;
 		[Tooltip("The GameObject holding the Audio Source component for the AUDIO SLIDER")]
 		public AudioSource sliderSound;
@@ -54,11 +54,11 @@ namespace SlimUI.ModernMenu{
 		public GameObject playMenu;
 		[Tooltip("The Menu for when the EXIT button is clicked")]
 		public GameObject exitMenu;
-		[Tooltip("Optional 4th Menu")]
-		public GameObject extrasMenu;
+	//	[Tooltip("Optional 4th Menu")]
+	//	public GameObject extrasMenu;
 
 		// highlights
-		[Header("Highlight Effects")]
+		/*[Header("Highlight Effects")]
 		[Tooltip("Highlight Image for when GAME Tab is selected in Settings")]
 		public GameObject lineGame;
 		[Tooltip("Highlight Image for when VIDEO Tab is selected in Settings")]
@@ -72,7 +72,7 @@ namespace SlimUI.ModernMenu{
 		[Tooltip("Highlight Image for when COMBAT Sub-Tab is selected in KEY BINDINGS")]
 		public GameObject lineCombat;
 		[Tooltip("Highlight Image for when GENERAL Sub-Tab is selected in KEY BINDINGS")]
-		public GameObject lineGeneral;
+		public GameObject lineGeneral;*/
 
 		[Header("LOADING SCREEN")]
 		public GameObject loadingMenu;
@@ -85,7 +85,7 @@ namespace SlimUI.ModernMenu{
 
 			playMenu.SetActive(false);
 			exitMenu.SetActive(false);
-			if(extrasMenu) extrasMenu.SetActive(false);
+		//	if(extrasMenu) extrasMenu.SetActive(false);
 			firstMenu.SetActive(true);
 			mainMenu.SetActive(true);
 
@@ -110,20 +110,20 @@ namespace SlimUI.ModernMenu{
 
 		public void PlayCampaign(){
 			exitMenu.SetActive(false);
-			if(extrasMenu) extrasMenu.SetActive(false);
+		//	if(extrasMenu) extrasMenu.SetActive(false);
 			playMenu.SetActive(true);
 		}
 		
 		public void PlayCampaignMobile(){
 			exitMenu.SetActive(false);
-			if(extrasMenu) extrasMenu.SetActive(false);
+		//	if(extrasMenu) extrasMenu.SetActive(false);
 			playMenu.SetActive(true);
 			mainMenu.SetActive(false);
 		}
 
 		public void ReturnMenu(){
 			playMenu.SetActive(false);
-			if(extrasMenu) extrasMenu.SetActive(false);
+		//	if(extrasMenu) extrasMenu.SetActive(false);
 			exitMenu.SetActive(false);
 			mainMenu.SetActive(true);
 		}
@@ -153,10 +153,10 @@ namespace SlimUI.ModernMenu{
 			PanelGame.SetActive(false);
 		//	PanelKeyBindings.SetActive(false);
 
-			lineGame.SetActive(false);
-			lineControls.SetActive(false);
-			lineVideo.SetActive(false);
-			lineKeyBindings.SetActive(false);
+		//	lineGame.SetActive(false);
+			//lineControls.SetActive(false);
+		//lineVideo.SetActive(false);
+			//lineKeyBindings.SetActive(false);
 
 		//	PanelMovement.SetActive(false);
 			//lineMovement.SetActive(false);
@@ -169,7 +169,7 @@ namespace SlimUI.ModernMenu{
 		public void GamePanel(){
 			DisablePanels();
 			PanelGame.SetActive(true);
-			lineGame.SetActive(true);
+		//	lineGame.SetActive(true);
 		}
 
 //		public void VideoPanel(){
@@ -181,35 +181,35 @@ namespace SlimUI.ModernMenu{
 		public void ControlsPanel(){
 			DisablePanels();
 			PanelControls.SetActive(true);
-			lineControls.SetActive(true);
+		//	lineControls.SetActive(true);
 		}
 
 		public void KeyBindingsPanel(){
 			DisablePanels();
 			MovementPanel();
 		//	PanelKeyBindings.SetActive(true);
-			lineKeyBindings.SetActive(true);
+		//	lineKeyBindings.SetActive(true);
 		}
 
 		public void MovementPanel(){
 			DisablePanels();
 		//	PanelKeyBindings.SetActive(true);
 		//	PanelMovement.SetActive(true);
-			lineMovement.SetActive(true);
+		//	lineMovement.SetActive(true);
 		}
 
 		public void CombatPanel(){
 			DisablePanels();
 		//	PanelKeyBindings.SetActive(true);
 		//	PanelCombat.SetActive(true);
-			lineCombat.SetActive(true);
+		//	lineCombat.SetActive(true);
 		}
 
 		public void GeneralPanel(){
 			DisablePanels();
 		//	PanelKeyBindings.SetActive(true);
 		//	PanelGeneral.SetActive(true);
-			lineGeneral.SetActive(true);
+		//	lineGeneral.SetActive(true);
 		}
 
 		public void PlayHover(){
@@ -227,20 +227,20 @@ namespace SlimUI.ModernMenu{
 		// Are You Sure - Quit Panel Pop Up
 		public void AreYouSure(){
 			exitMenu.SetActive(true);
-			if(extrasMenu) extrasMenu.SetActive(false);
+		//	if(extrasMenu) extrasMenu.SetActive(false);
 			DisablePlayCampaign();
 		}
 
 		public void AreYouSureMobile(){
 			exitMenu.SetActive(true);
-			if(extrasMenu) extrasMenu.SetActive(false);
+		//	if(extrasMenu) extrasMenu.SetActive(false);
 			mainMenu.SetActive(false);
 			DisablePlayCampaign();
 		}
 
 		public void ExtrasMenu(){
 			playMenu.SetActive(false);
-			if(extrasMenu) extrasMenu.SetActive(true);
+		//	if(extrasMenu) extrasMenu.SetActive(true);
 			exitMenu.SetActive(false);
 		}
 
